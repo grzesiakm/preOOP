@@ -21,14 +21,14 @@ void addStudent(int* number, int* capacity, char*** namesList, int** yearsList, 
 		}
 		delete []temp;
 
-		char** tempor = new char*[*number];
+		char** tmpr = new char*[*number];
 		for(int i=0; i<*number; i++){
-			tempor[i]=(*namesList)[i];
+			tmpr[i]=(*namesList)[i];
 		}
 		delete [](*namesList);
 		(*namesList) = new char*[*capacity];
 		for(int i=0; i<*number;i++){
-			(*namesList)[i] = tempor[i];
+			(*namesList)[i] = tmpr[i];
 		}
 	}
 

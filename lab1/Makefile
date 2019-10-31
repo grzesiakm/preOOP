@@ -1,6 +1,6 @@
 CXX = g++
-EXEC = lab03.exe
-CXXFLAGS = -Wall -g 
+EXEC = main.exe
+CXXFLAGS = -Wall -g -pedantic
 
 SRC=$(wildcard *.cpp)
 OBJS=$(SRC:.cpp=.o)
@@ -25,5 +25,4 @@ run: $(EXEC)
 all:
 	make clean
 	make run
-
-
+	

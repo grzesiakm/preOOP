@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 CC     = g++
 CFLAGS = -Wall -ansi -pedantic
 LFLAGS = -lm
 OBJS   = number_correct.o find_ctrl.o main.o
 EXEC   = main
+=======
+CXX = g++
+EXEC = main.exe
+CXXFLAGS = -Wall -g -O0 -pedantic --debug
+>>>>>>> b05d538016925a0ebd2da1ddd3786ef0aceec623
 
 all: $(EXEC)
 
