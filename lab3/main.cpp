@@ -36,12 +36,12 @@ int main ()
 	executeFunction(add_one, ptrStart, ptrEnd-1);
 	printSeries(ptrStart, ptrEnd);
 
-	// przypomnienie: functionPtr jest wskaźnikiem na funkcję:
+	// functionPtr jest wskaźnikiem na funkcję:
 	// - z odpowiednim typem zwracanym
 	// - o odpowiednich parametrach formalnych
 	// - wskaźnik tego typu definiujemy poprzez typedef 
 	functionPtr funContainer [] = {squareroot, // wylicza pierwiastek 2go stopnia
-									add_one,  // powiększa element o 1
+					add_one,  // powiększa element o 1
 	                            	tripple };   // potraja liczbę
 
 	const int nOperations = sizeof(funContainer)/sizeof(functionPtr);
@@ -54,6 +54,7 @@ int main ()
 
 	clearData(dataPtr1);
 }
+
 /* wynik dzialania programu:
 
 Before:
