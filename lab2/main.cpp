@@ -1,7 +1,3 @@
-// Prosze dopisac kod, dodac nowe pliki, tak aby program wykonywal
-// sie, a wynik jego dzialania byl taki sam jak podany na końcu tego
-// pliku.
-
 // ==================================================================
 // Prosze napisac: liste, która przechowuje pary liczb
 // oraz funkcje startList, add, remove, freeList, ktore:
@@ -20,16 +16,7 @@
 
 // Prosze zadbac o dobre zarzadzanie pamiecia.
 
-// Pliku lab04.cpp nie wolno modyfikowac.
 
-// Ostateczny program powinien byc przyjazny dla programisty (miec
-// czytelny i dobrze napisany kod). 
-
-// Makefile powinien zawierac cel "clean", ktory usuwa pliki
-// obiektowe i plik wykonywalny.
-
-
-// Skonczone zadanie nalezy spakowac i wgrac na UPEL
 #include "Pair.h"
 #include "ListFunctions.h"
 #include "ListFunctions.h"
@@ -45,10 +32,10 @@ int main ()
 	int listSize=2;
 	int pairsNumber=0;
 	startList(&pairsList, listSize);
-	Pair pair1={-0.86,	0.35};
-	Pair pair2={-0.34,	0.65};
-	Pair pair3={ 0.34,	0.65};
-	Pair pair4={ 0.86,	0.35};
+	Pair pair1={-0.86, 0.35};
+	Pair pair2={-0.34, 0.65};
+	Pair pair3={ 0.34, 0.65};
+	Pair pair4={ 0.86, 0.35};
 
 	add(&pairsList, pair1, &listSize, &pairsNumber);
 	add(&pairsList, pair2, &listSize, &pairsNumber);
@@ -61,6 +48,7 @@ int main ()
 
   return 0;
 }
+
 /* 
 //wynik dzialania programu:
 ( -0.86, 0.35)
