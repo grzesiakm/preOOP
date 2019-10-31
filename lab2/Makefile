@@ -1,30 +1,25 @@
-CXX = g++
-EXEC = lab04.exe
-CXXFLAGS = -Wall -g -O0 -pedantic --debug
+CC     = g++
+CFLAGS = -Wall -ansi -pedantic
+LFLAGS = -lm
+OBJS   = number_correct.o find_ctrl.o main.o
+EXEC   = main
 
-SRC=$(wildcard *.cpp)
-OBJS=$(SRC:.cpp=.o)
+all: $(EXEC)
 
 $(EXEC): $(OBJS)
-	$(CXX) -o $(EXEC) $(OBJS) $(CXXFLAGS)
+	$(CC) $(LFLAGS) $+ -o $@
+	echo main: zbudowane!
 
-*.o: *.cpp
-	$(CXX) -c $(CXXFLAGS) $<
+%.o: %.cpp
+	$(CC) -c $(CFLAGS) $<
 
-.PHONY: clean run all 
+lab02.o : check_number.h
+find_ctrl.o: check_number.h
+number_correct.o: check_number.h 
 
-clean: 
-	rm -f $(OBJS)
-	rm -f $(EXEC) 
+clean:
+	rm -f *~
+	rm -f *.bak
+	rm -f $(EXEC) $(OBJS)
 
-run: $(EXEC)
-	@echo 
-	@echo ~~~ NOW RUNNING THE EXECUTABLE: ~~~
-	./$(EXEC)
-	@echo
-
-all:
-	make run
-	make clean
-
-
+.PHONY: clean

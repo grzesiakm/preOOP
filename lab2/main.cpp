@@ -1,86 +1,70 @@
-// Prosze dopisac kod, dodac nowe pliki, tak aby program wykonywal
-// sie, a wynik jego dzialania byl taki sam jak podany na końcu tego
-// pliku.
+/*
+ Tematem zadania jest algorytm weryfikacji numeru karty kredytowej.
+ Prawidłowy numer karty może mieć różną liczbę cyfr, np. 
+ VISA 13 lub 16
+ Master Card 16
+ American Express 15
 
-// ==================================================================
-// Prosze napisac: liste, która przechowuje pary liczb
-// oraz funkcje startList, add, remove, freeList, ktore:
-// startList(int) - zwraca nowa liste o podanym poczatkowym rozmiarze. 
-// add(pair) - umieszcza pare na liscie.
-// freeList - zwalnia pamiec
-// Pojemnosc listy prosze dostosowac do liczby elementow,
-// tzn. zwiekszyc pojemnosc gdy liczba elementow ja przekroczy
+ Weryfikację numeru karty można przeprowadzić algorytmem Luhna:
 
-// Tworzac liste w funkcji, alokujemy pamiec.
-// Zwalniamy funkcja freeList 
+ jeśli numer karty jest krótszy od 16 cyfr to przed numerem dopisujemy zera,
+ kolejne cyfry numeru mnożymy przez współczynniki wagowe,
+ kolejno 2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,
+ sumujemy wszystkie CYFRY otrzymanego wyniku,
+ numer karty jest prawidłowy jeśli ostatnia cyfra wyniku sumowania jest równa 0. 
 
-// Flaga z opcja debugowania powinna byc dodana na etapie kompilacji.
-// po dodaniu tej flagi program wypisuje wiecej informacji.
-// ===================================================================
-
-// Prosze zadbac o dobre zarzadzanie pamiecia.
-
-// Pliku lab04.cpp nie wolno modyfikowac.
-
-// Ostateczny program powinien byc przyjazny dla programisty (miec
-// czytelny i dobrze napisany kod). 
-
-// Makefile powinien zawierac cel "clean", ktory usuwa pliki
-// obiektowe i plik wykonywalny.
+ Przykład:
+  2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1   -> wagi
+* 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 2   -> nr karty 
+---------------------------------
+2*1 1*2 2*3 1*4 2*5 1*6 2*7 1*8 2*9 1*0 2*1 1*2 2*3 1*4 2*5 1*2  
+ 2   2   6   4  10   6  14   8  18   0   2   2   6   4  10   2 
+ 2 + 2 + 6 + 4+1+0 + 6+1+4 + 8+1+8 + 0 + 2 + 2 + 6 + 4+1+0 + 2=60
+                     
+           60 mod 10 = 0 ----> cyfra kontrolna prawidłowa
 
 
-// Skonczone zadanie nalezy spakowac i wgrac na UPEL
-#include "Pair.h"
-#include "ListFunctions.h"
-#include "ListFunctions.h"
+ Proszę napisac dwie funkcje: 
+ - do obliczania cyfry kontrolnej (find_ctrl) 
+ - sprawdzającą poprawność numeru (number_correct).
+ 
+
+ */
+
+
 #include <iostream>
+#include "check_number.h"
+#include "check_number.h"
 
-int main ()
-{
-	#ifdef DEBUG
-	std::cout<< "Tryb debugowania" << std::endl;
-	#endif
 
-	Pair *pairsList = NULL;
-	int listSize=2;
-	int pairsNumber=0;
-	startList(&pairsList, listSize);
-	Pair pair1={-0.86,	0.35};
-	Pair pair2={-0.34,	0.65};
-	Pair pair3={ 0.34,	0.65};
-	Pair pair4={ 0.86,	0.35};
+int main() {
+  const char* visa = "4222222222222";
+  char ctrl = find_ctrl(visa);
 
-	add(&pairsList, pair1, &listSize, &pairsNumber);
-	add(&pairsList, pair2, &listSize, &pairsNumber);
-	add(&pairsList, pair3, &listSize, &pairsNumber);
-	add(&pairsList, pair4, &listSize, &pairsNumber);
-	
-	printList(pairsList, pairsNumber);
+  std::cout << visa << "\t" << ctrl << std::endl;
 
-	freeList(&pairsList);
+  visa = "4111111111111111";
+  ctrl = find_ctrl(visa);
+  std::cout << visa << "\t" << ctrl << std::endl;
 
+  /// weryfikacja 
+  visa = "4012888888881881"; 
+  if ( number_correct(visa) ) {
+    std::cout << "numer " << visa << " jest poprawny " << std::endl; 
+  }
+
+  visa = "4222222723122"; 
+  if (not number_correct(visa) ) {
+    std::cout << "numer " << visa << " nie jest poprawny " << std::endl; 
+  }
   return 0;
 }
-/* 
-//wynik dzialania programu:
-( -0.86, 0.35)
-( -0.34, 0.65)
-( 0.34, 0.65)
-( 0.86, 0.35)
-//
-//wynik dzialania z flaga -DDEBUG:
-//
-Tryb debugowania
-Alokacja pamieci
-Dodawanie 0 elementu
-Dodawanie 1 elementu
-Dodawanie 2 elementu
-Dodawanie 3 elementu
-( -0.86, 0.35)
-( -0.34, 0.65)
-( 0.34, 0.65)
-( 0.86, 0.35)
 
-Zwalnianie pamieci
+/* wynik
 
-*/
+4222222222222	0
+4111111111111111	0
+numer 4012888888881881 jest poprawny 
+numer 4222222723122 nie jest poprawny 
+
+ */
