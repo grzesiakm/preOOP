@@ -1,0 +1,11 @@
+/home/mg/mrenca/cwiczeniaPaczka/wowCMake/bd/CMakeFiles/doxyDoc.dir
+/home/mg/mrenca/cwiczeniaPaczka/wowCMake/bd/CMakeFiles/info.dir
+/home/mg/mrenca/cwiczeniaPaczka/wowCMake/bd/CMakeFiles/rebuild_cache.dir
+/home/mg/mrenca/cwiczeniaPaczka/wowCMake/bd/CMakeFiles/libtest.dir
+/home/mg/mrenca/cwiczeniaPaczka/wowCMake/bd/CMakeFiles/test.dir
+/home/mg/mrenca/cwiczeniaPaczka/wowCMake/bd/CMakeFiles/edit_cache.dir
+/home/mg/mrenca/cwiczeniaPaczka/wowCMake/bd/CMakeFiles/install/strip.dir
+/home/mg/mrenca/cwiczeniaPaczka/wowCMake/bd/CMakeFiles/list_install_components.dir
+/home/mg/mrenca/cwiczeniaPaczka/wowCMake/bd/CMakeFiles/Tutorial.dir
+/home/mg/mrenca/cwiczeniaPaczka/wowCMake/bd/CMakeFiles/install.dir
+/home/mg/mrenca/cwiczeniaPaczka/wowCMake/bd/CMakeFiles/install/local.dir
