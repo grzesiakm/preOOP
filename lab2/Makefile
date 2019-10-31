@@ -1,5 +1,5 @@
 CXX = g++
-EXEC = lab04.exe
+EXEC = main.exe
 CXXFLAGS = -Wall -g -O0 -pedantic --debug
 
 SRC=$(wildcard *.cpp)
