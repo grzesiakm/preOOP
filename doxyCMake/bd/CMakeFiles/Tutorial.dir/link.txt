@@ -1,1 +1,0 @@
-/usr/bin/c++  -DLIB_TEST -Wall -g  -rdynamic CMakeFiles/Tutorial.dir/main.cpp.o  -o Tutorial  liblibtest.a 
