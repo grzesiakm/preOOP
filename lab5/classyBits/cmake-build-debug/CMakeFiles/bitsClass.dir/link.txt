@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/bitsClass.dir/main.cpp.o CMakeFiles/bitsClass.dir/Bits.cpp.o  -o bitsClass 

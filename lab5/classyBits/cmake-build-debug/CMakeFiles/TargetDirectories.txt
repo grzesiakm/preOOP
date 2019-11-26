@@ -1,3 +1,0 @@
-/home/mg/CLionProjects/projects/bitsClass/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/mg/CLionProjects/projects/bitsClass/cmake-build-debug/CMakeFiles/bitsClass.dir
-/home/mg/CLionProjects/projects/bitsClass/cmake-build-debug/CMakeFiles/edit_cache.dir
